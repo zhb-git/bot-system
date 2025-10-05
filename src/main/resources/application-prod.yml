@@ -1,0 +1,92 @@
+# 系统配置
+system:
+  domain: https://amtls.w1.luyouxia.net
+
+# 服务配置
+server:
+  port: 8080
+
+# 日志级别配置
+logging:
+  level:
+    com.bot_system: info
+
+# spring配置
+spring:
+  # 模板配置
+  thymeleaf:
+    cache: true
+  # 请求配置
+  servlet:
+    multipart:
+      # 单个文件最大限制
+      max-file-size: 20MB
+      # 总请求体最大限制（所有文件加表单）
+      max-request-size: 20MB
+  # redis配置
+  data:
+    redis:
+      database: 0
+      host: localhost
+      port: 6379
+      password:
+  # mysql配置
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/bot_system?serverTimezone=Asia/Shanghai&characterEncoding=UTF-8&useUnicode=yes
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      pool-name: mysql
+      connection-test-query: SELECT 1
+
+# mybatis-plus配置
+mybatis-plus:
+  # xml位置
+  mapper-locations: classpath:mapper-xml/**/*.xml
+
+# sa-token配置
+sa-token:
+  token-name: token
+  timeout: 2592000
+  active-timeout: -1
+  is-concurrent: false
+  is-share: false
+  token-style: uuid
+  is-log: true
+
+# springdoc配置
+springdoc:
+  default-produces-media-type: application/json
+  default-consumes-media-type: application/json
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+    enabled: true
+  api-docs:
+    path: /v3/api-docs
+    enabled: true
+  group-configs:
+    - group: 后台管理接口
+      paths-to-match: /**
+      packages-to-scan:
+        - com.bot_system.controller
+
+# 接口文档配置
+knife4j:
+  enable: true
+  # 生产环境屏蔽
+  production: true
+  setting:
+    language: zh_cn
+    swagger-model-name: 实体类
+    enable-swagger-models: true
+  documents:
+    - group: 管理员接口
+      name: 其它文档
+      locations: classpath:markdown/*
+
+# 机器人配置
+bot:
+  token: 8413437592:AAEJq5-M3cTHiHuy_Cd-WRXX_ZgQcSR5-bI
