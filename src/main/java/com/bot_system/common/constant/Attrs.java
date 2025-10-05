@@ -8,8 +8,5 @@ package com.bot_system.common.constant;
  * @description: Http请求属性名
  */
 public final class Attrs {
-    /**
-     * 机器人更新
-     */
-    public static final String BOT_UPDATE = "bot-update";
+
 }

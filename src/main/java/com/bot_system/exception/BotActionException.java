@@ -1,5 +1,7 @@
 package com.bot_system.exception;
 
+import com.bot_system.annotation.BotFeedback;
+
 /**
  * @className: BotActionException
  * @author: Java之父
@@ -7,6 +9,7 @@ package com.bot_system.exception;
  * @version: 1.0.0
  * @description: 机器人操作异常
  */
+@BotFeedback
 public class BotActionException extends RuntimeException {
     public BotActionException(String message) {
         super(message);

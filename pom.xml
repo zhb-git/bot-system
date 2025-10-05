@@ -36,6 +36,7 @@
         <hutool.version>5.8.35</hutool.version>
         <sa-token.version>1.41.0</sa-token.version>
         <mybatis-plus.version>3.5.12</mybatis-plus.version>
+        <fastjson2.version>2.0.57</fastjson2.version>
     </properties>
     <dependencies>
         <dependency>
@@ -109,6 +110,19 @@
             <groupId>org.telegram</groupId>
             <artifactId>telegrambots-client</artifactId>
             <version>${telegram.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.telegram</groupId>
+            <artifactId>telegrambots-longpolling</artifactId>
+            <version>${telegram.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.alibaba.fastjson2</groupId>
+            <artifactId>fastjson2</artifactId>
+            <version>${fastjson2.version}</version>
         </dependency>
 
         <dependency>

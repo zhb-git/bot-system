@@ -1,5 +1,9 @@
 package com.bot_system.common.core;
 
+import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONArray;
+import com.alibaba.fastjson2.JSONObject;
+import com.bot_system.common.utils.HttpUtil;
 import com.bot_system.exception.BotException;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
@@ -84,7 +88,7 @@ public class Bot {
                     // webhook路径
                     .url(url)
                     // 接收指定类型消息
-                    .allowedUpdates(List.of("message", "callback_query", "inline_query"))
+                    // .allowedUpdates(List.of("message", "callback_query", "inline_query"))
                     // 清空旧消息
                     .dropPendingUpdates(true)
                     .build();
@@ -121,6 +125,34 @@ public class Bot {
             this.client.execute(setMyCommands);
         } catch (TelegramApiException e) {
             throw new BotException("机器人@" + this.name + "指令设置失败", e);
+        }
+    }
+
+    /**
+     * 清空机器人消息
+     */
+    public void clearUpdates() {
+        try {
+            String url = "https://api.telegram.org/bot" + this.token + "/getUpdates?timeout=0";
+            String response = HttpUtil.get(url);
+
+            JSONObject json = JSON.parseObject(response);
+            JSONArray result = json.getJSONArray("result");
+
+            if (result != null && !result.isEmpty()) {
+                JSONObject last = result.getJSONObject(result.size() - 1);
+                long lastUpdateId = last.getLongValue("update_id");
+
+                String cleanUrl = "https://api.telegram.org/bot" + this.token
+                        + "/getUpdates?offset=" + (lastUpdateId + 1);
+                HttpUtil.get(cleanUrl);
+
+                log.info("已跳过旧消息，最新 offset = {}", lastUpdateId + 1);
+            } else {
+                log.info("无需跳过旧消息");
+            }
+        } catch (Exception e) {
+            throw new BotException("跳过旧消息失败", e);
         }
     }
 

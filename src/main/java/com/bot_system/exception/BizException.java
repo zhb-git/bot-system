@@ -1,5 +1,7 @@
 package com.bot_system.exception;
 
+import com.bot_system.annotation.BotFeedback;
+
 /**
  * @className: BizException
  * @author: Java之父
@@ -7,6 +9,7 @@ package com.bot_system.exception;
  * @version: 1.0.0
  * @description: 业务执行异常
  */
+@BotFeedback
 public class BizException extends RuntimeException {
     public BizException(String message) {
         super(message);

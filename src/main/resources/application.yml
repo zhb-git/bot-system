@@ -1,1 +1,5 @@
-spring.application.name=bot-system
+spring:
+  application:
+    name: 机器人系统
+  profiles:
+    active: dev

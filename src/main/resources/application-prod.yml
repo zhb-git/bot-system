@@ -39,6 +39,12 @@ spring:
     hikari:
       pool-name: mysql
       connection-test-query: SELECT 1
+  # jackson配置
+  jackson:
+    # 格式为yyyy-MM-dd HH:mm:ss
+    date-format: yyyy-MM-dd HH:mm:ss
+    # 定时区，解决8小时的时间差问题
+    time-zone: Asia/Shanghai
 
 # mybatis-plus配置
 mybatis-plus:
@@ -48,6 +54,7 @@ mybatis-plus:
 # sa-token配置
 sa-token:
   token-name: token
+  # 三天有效期
   timeout: 2592000
   active-timeout: -1
   is-concurrent: false
@@ -71,7 +78,7 @@ springdoc:
     - group: 后台管理接口
       paths-to-match: /**
       packages-to-scan:
-        - com.bot_system.controller
+        - com.bot_system.admin.controller
 
 # 接口文档配置
 knife4j:
@@ -90,3 +97,4 @@ knife4j:
 # 机器人配置
 bot:
   token: 8413437592:AAEJq5-M3cTHiHuy_Cd-WRXX_ZgQcSR5-bI
+  model: 1
