@@ -2,8 +2,11 @@ package com.bot_system.model.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import java.util.List;
 
 /**
  * @className: SysAdmin
@@ -13,13 +16,14 @@ import lombok.EqualsAndHashCode;
  * @description: 管理员
  */
 @Data
-@TableName("sys_admin")
+@TableName(value = "sys_admin", autoResultMap = true)
 @EqualsAndHashCode(callSuper = true)
 public class SysAdmin extends BaseEntity {
     @TableField("admin_account")
     private String account;
     @TableField("admin_password")
     private String password;
-    private String role;
+    @TableField(typeHandler = JacksonTypeHandler.class)
+    private List<String> roles;
     private String remark;
 }

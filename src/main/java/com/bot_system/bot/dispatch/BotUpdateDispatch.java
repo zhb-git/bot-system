@@ -16,6 +16,6 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 @Component
 public class BotUpdateDispatch {
     public BotApiMethod<?> dispatch(Update update) {
-
+        return null;
     }
 }
