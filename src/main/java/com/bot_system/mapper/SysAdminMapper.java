@@ -8,7 +8,7 @@ import com.bot_system.model.entity.SysAdmin;
  * @author: Java之父
  * @date: 2025/10/5 19:03
  * @version: 1.0.0
- * @description:
+ * @description: 管理员mapper
  */
 public interface SysAdminMapper extends BaseMapper<SysAdmin> {
 }
