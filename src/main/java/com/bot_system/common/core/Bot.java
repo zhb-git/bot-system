@@ -1228,7 +1228,7 @@ public class Bot {
      * @param text    文本
      * @return        反馈
      */
-    private AnswerCallbackQuery alert(String queryId, String text) {
+    public AnswerCallbackQuery alert(String queryId, String text) {
         return answer(queryId, text, true, 0);
     }
 
@@ -1239,7 +1239,7 @@ public class Bot {
      * @param cache   缓存时间
      * @return        反馈
      */
-    private AnswerCallbackQuery alert(String queryId, String text, int cache) {
+    public AnswerCallbackQuery alert(String queryId, String text, int cache) {
         return answer(queryId, text, true, cache);
     }
 
@@ -1249,7 +1249,7 @@ public class Bot {
      * @param text    文本
      * @return        反馈
      */
-    private AnswerCallbackQuery tips(String queryId, String text) {
+    public AnswerCallbackQuery tips(String queryId, String text) {
         return answer(queryId, text, false, 0);
     }
 
@@ -1260,7 +1260,7 @@ public class Bot {
      * @param cache   缓存时间
      * @return        反馈
      */
-    private AnswerCallbackQuery tips(String queryId, String text, int cache) {
+    public AnswerCallbackQuery tips(String queryId, String text, int cache) {
         return answer(queryId, text, false, cache);
     }
 
