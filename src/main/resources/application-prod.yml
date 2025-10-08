@@ -39,12 +39,6 @@ spring:
     hikari:
       pool-name: mysql
       connection-test-query: SELECT 1
-  # jackson配置
-  jackson:
-    # 格式为yyyy-MM-dd HH:mm:ss
-    date-format: yyyy-MM-dd HH:mm:ss
-    # 定时区，解决8小时的时间差问题
-    time-zone: Asia/Shanghai
 
 # mybatis-plus配置
 mybatis-plus:
