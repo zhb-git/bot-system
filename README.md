@@ -47,23 +47,23 @@ bot-system/
 │ │ ├── annotation/ # 自定义注解模块
 │ │ ├── bot/ # 机器人主逻辑模块
 │ │ │ ├── dispatch/ # 消息分发调度器
-│ │ │ ├── handler/ # 各类型消息处理器（Message/Callback/Inline）
-│ │ │ ├── mode/ # 启动模式（Webhook / LongPolling）
+│ │ │ ├── handler/ # 各类型消息处理器 (Message/Callback/Inline)
+│ │ │ ├── mode/ # 启动模式 (Webhook / LongPolling)
 │ │ │ └── BotApplication.java # 机器人启动入口
 │ │ ├── common/ # 公共工具层
 │ │ │ ├── constant/ # 常量定义
-│ │ │ ├── core/ # 核心类封装（Bot、ErrorProcessor等）
+│ │ │ ├── core/ # 核心类封装 (Bot、ErrorProcessor等)
 │ │ │ ├── lock/ # 本地锁与并发控制
-│ │ │ └── utils/ # 通用工具集（时间、请求、JSON、日志）
-│ │ ├── config/ # Spring 配置类（SystemConfig、TelegramBotConfig）
-│ │ ├── controller/ # 控制层（REST接口）
+│ │ │ └── utils/ # 通用工具集 (时间、请求、JSON、日志)
+│ │ ├── config/ # Spring 配置类 (SystemConfig, TelegramBotConfig)
+│ │ ├── controller/ # 控制层 (REST接口)
 │ │ │ ├── admin/ # 管理后台接口
 │ │ │ └── global/ # 全局通用接口
 │ │ ├── exception/ # 异常定义与统一捕获
 │ │ ├── job/ # 定时任务模块
 │ │ ├── mapper/ # MyBatis 映射接口
 │ │ ├── model/ # 数据模型
-│ │ │ ├── entity/ # 实体类（数据库表映射）
+│ │ │ ├── entity/ # 实体类 (数据库表映射)
 │ │ │ ├── pojo/ # 业务POJO对象
 │ │ │ ├── request/ # 请求参数模型
 │ │ │ └── response/ # 响应结果模型
