@@ -1265,6 +1265,17 @@ public class Bot {
     }
 
     /**
+     * 回调反馈，让按钮不再显示加载中（按钮回调）
+     * @param queryId 回调id
+     * @return        反馈
+     */
+    public AnswerCallbackQuery answer(String queryId) {
+        return AnswerCallbackQuery.builder()
+                .callbackQueryId(queryId)
+                .build();
+    }
+
+    /**
      * 回调反馈
      * @param queryId 回调id
      * @param text    文本
