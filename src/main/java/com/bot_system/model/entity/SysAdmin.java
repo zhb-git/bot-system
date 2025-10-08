@@ -16,6 +16,7 @@ import java.util.List;
  * @description: 管理员
  */
 @Data
+// 若有字段需要json映射得开启autoResultMap = true，且标明@TableField(typeHandler = JacksonTypeHandler.class)注解
 @TableName(value = "sys_admin", autoResultMap = true)
 @EqualsAndHashCode(callSuper = true)
 public class SysAdmin extends BaseEntity {

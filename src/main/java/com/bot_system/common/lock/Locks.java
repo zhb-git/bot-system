@@ -8,5 +8,12 @@ package com.bot_system.common.lock;
  * @description: 锁
  */
 public final class Locks {
-
+    /**
+     * 创建管理员锁（根据账号来）
+     * @param account 账号
+     * @return        锁
+     */
+    public static String getCreateAdminLock(String account) {
+        return "createAdmin:" + account;
+    }
 }

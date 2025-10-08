@@ -6,6 +6,8 @@ import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.bot_system.common.lock.DynamicLockPool;
+import com.bot_system.common.lock.Locks;
 import com.bot_system.exception.BizException;
 import com.bot_system.mapper.SysAdminMapper;
 import com.bot_system.model.entity.SysAdmin;
@@ -35,6 +37,15 @@ import java.time.LocalDateTime;
 public class SysAdminServiceImpl extends ServiceImpl<SysAdminMapper, SysAdmin> implements ISysAdminService {
     @Override
     public void create(CreateSysAdminQuery query) {
+        // 校验账号是否存在（这里可以用全局锁synchronized，只是做一个业务粒度锁的演示，synchronized比ReentrantLock更快）
+        String lock = Locks.getCreateAdminLock(query.getAccount());
+        DynamicLockPool.execute(lock, () -> {
+            LambdaQueryWrapper<SysAdmin> wrapper = new LambdaQueryWrapper<>();
+            wrapper.eq(SysAdmin::getAccount, query.getAccount());
+            if (baseMapper.exists(wrapper)) {
+                throw new BizException("账号已存在");
+            }
+        });
         SysAdmin sysAdmin = new SysAdmin();
         BeanUtils.copyProperties(query, sysAdmin);
         if (baseMapper.insert(sysAdmin) != 1) {

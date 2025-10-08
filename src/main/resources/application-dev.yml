@@ -78,7 +78,7 @@ springdoc:
     - group: 后台管理接口
       paths-to-match: /**
       packages-to-scan:
-        - com.bot_system.admin.controller
+        - com.bot_system.controller.admin
 
 # 接口文档配置
 knife4j:
