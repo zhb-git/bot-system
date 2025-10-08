@@ -8,6 +8,7 @@ import com.bot_system.exception.BotException;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.telegram.telegrambots.client.okhttp.OkHttpTelegramClient;
+import org.telegram.telegrambots.meta.api.methods.AnswerCallbackQuery;
 import org.telegram.telegrambots.meta.api.methods.GetMe;
 import org.telegram.telegrambots.meta.api.methods.ParseMode;
 import org.telegram.telegrambots.meta.api.methods.commands.SetMyCommands;
@@ -18,10 +19,7 @@ import org.telegram.telegrambots.meta.api.methods.pinnedmessages.UnpinChatMessag
 import org.telegram.telegrambots.meta.api.methods.send.*;
 import org.telegram.telegrambots.meta.api.methods.updates.DeleteWebhook;
 import org.telegram.telegrambots.meta.api.methods.updates.SetWebhook;
-import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageCaption;
-import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageMedia;
-import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageReplyMarkup;
-import org.telegram.telegrambots.meta.api.methods.updatingmessages.EditMessageText;
+import org.telegram.telegrambots.meta.api.methods.updatingmessages.*;
 import org.telegram.telegrambots.meta.api.objects.InputFile;
 import org.telegram.telegrambots.meta.api.objects.User;
 import org.telegram.telegrambots.meta.api.objects.chat.Chat;
@@ -1205,5 +1203,81 @@ public class Bot {
         } catch (TelegramApiException e) {
             throw new BotException("机器人退出群组、频道失败", e);
         }
+    }
+
+    /**
+     * 删除消息（用户、群组、频道）
+     * @param chatId    目标id
+     * @param messageId 消息id
+     */
+    public void deleteMessage(Long chatId, Integer messageId) {
+        DeleteMessage deleteMessage = DeleteMessage.builder()
+                .chatId(chatId)
+                .messageId(messageId)
+                .build();
+        try {
+            client.execute(deleteMessage);
+        } catch (TelegramApiException e) {
+            throw new BotException("删除消息失败", e);
+        }
+    }
+
+    /**
+     * 弹窗（按钮回调）
+     * @param queryId 回调id
+     * @param text    文本
+     * @return        反馈
+     */
+    private AnswerCallbackQuery alert(String queryId, String text) {
+        return answer(queryId, text, true, 0);
+    }
+
+    /**
+     * 弹窗（按钮回调）
+     * @param queryId 回调id
+     * @param text    文本
+     * @param cache   缓存时间
+     * @return        反馈
+     */
+    private AnswerCallbackQuery alert(String queryId, String text, int cache) {
+        return answer(queryId, text, true, cache);
+    }
+
+    /**
+     * 提示（按钮回调）
+     * @param queryId 回调id
+     * @param text    文本
+     * @return        反馈
+     */
+    private AnswerCallbackQuery tips(String queryId, String text) {
+        return answer(queryId, text, false, 0);
+    }
+
+    /**
+     * 提示（按钮回调）
+     * @param queryId 回调id
+     * @param text    文本
+     * @param cache   缓存时间
+     * @return        反馈
+     */
+    private AnswerCallbackQuery tips(String queryId, String text, int cache) {
+        return answer(queryId, text, false, cache);
+    }
+
+    /**
+     * 回调反馈
+     * @param queryId 回调id
+     * @param text    文本
+     * @param alert   是否弹窗
+     * @param cache   缓存
+     * @return        反馈
+     */
+    private AnswerCallbackQuery answer(String queryId, String text, boolean alert, int cache) {
+        return AnswerCallbackQuery.builder()
+                .callbackQueryId(queryId)
+                .text(text)
+                .cacheTime(cache)
+                .showAlert(alert)
+                .build();
     }
 }
