@@ -167,6 +167,6 @@ public class GlobalExceptionController {
     @ExceptionHandler(Exception.class)
     R<String> exceptionHandler(Exception e, HttpServletRequest request) {
         log.error("接口请求异常 -> uri：{} error：{}", request.getRequestURI(), e.getMessage(), e);
-        return R.error("请求异常: " + e.getMessage());
+        return R.error("请求异常：" + e.getMessage());
     }
 }

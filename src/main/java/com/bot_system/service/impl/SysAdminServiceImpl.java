@@ -52,8 +52,8 @@ public class SysAdminServiceImpl extends ServiceImpl<SysAdminMapper, SysAdmin> i
     @Override
     public void update(UpdateSysAdminQuery query) {
         LambdaUpdateWrapper<SysAdmin> wrapper = new LambdaUpdateWrapper<>();
-        if (StringUtils.hasText(query.getRole())) {
-            wrapper.set(SysAdmin::getRole, query.getRole());
+        if (query.getRoles() != null && !query.getRoles().isEmpty()) {
+            wrapper.set(SysAdmin::getRoles, query.getRoles());
         }
         if (StringUtils.hasText(query.getRemark())) {
             wrapper.set(SysAdmin::getRemark, query.getRemark());
@@ -75,7 +75,7 @@ public class SysAdminServiceImpl extends ServiceImpl<SysAdminMapper, SysAdmin> i
             wrapper.eq(SysAdmin::getId, query.getId());
         }
         if (StringUtils.hasText(query.getAccount())) {
-            wrapper.like(SysAdmin::getRole, query.getAccount());
+            wrapper.like(SysAdmin::getAccount, query.getAccount());
         }
         if (StringUtils.hasText(query.getRemark())) {
             wrapper.like(SysAdmin::getRemark, query.getRemark());

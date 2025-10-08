@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  * @author: Java之父
  * @date: 2025/10/4 21:47
  * @version: 1.0.0
- * @description:
+ * @description: 机器人配置
  */
 @Data
 @Configuration

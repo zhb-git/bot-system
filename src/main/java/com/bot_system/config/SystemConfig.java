@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
  * @author: Java之父
  * @date: 2025/10/4 21:48
  * @version: 1.0.0
- * @description:
+ * @description: 本地系统配置
  */
 @Data
 @Configuration

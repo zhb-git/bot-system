@@ -10,6 +10,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 
+/**
+ * @className: SpringDocConfig
+ * @author: java之父
+ * @date: 2025/6/18 16:18
+ * @version: 1.0.0
+ * @description: doc文档配置类
+ */
 @OpenAPIDefinition(
         servers = {
                 @Server(description = "开发环境api", url = "http://localhost:8080")

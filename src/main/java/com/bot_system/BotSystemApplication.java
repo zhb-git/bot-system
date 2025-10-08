@@ -49,7 +49,7 @@ public class BotSystemApplication implements ApplicationRunner {
             String property = environment.getProperty("local.server.port");
             int port = property == null ? this.port : Integer.parseInt(property);
             System.out.println("---------------------------------------------------------");
-            System.out.println("- 当前环境为本地, 接口文档地址: http://localhost:" + port + "/doc.html");
+            System.out.println("- 当前环境为本地，接口文档地址: http://localhost:" + port + "/doc.html");
             System.out.println("---------------------------------------------------------");
         }
     }

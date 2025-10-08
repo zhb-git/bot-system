@@ -42,7 +42,7 @@ public class BotLongPoll implements LongPollingSingleThreadUpdateConsumer {
                     bot.getClient().execute(apiMethod);
                 }
             } catch (Exception e) {
-                log.error("机器人执行异常: {}", e.getMessage());
+                log.error("机器人执行异常：{}", e.getMessage());
                 BotApiMethod<?> apiMethod = BotErrorProcessor.process(update, e);
                 try {
                     bot.getClient().execute(apiMethod);

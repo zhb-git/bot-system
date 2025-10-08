@@ -4,6 +4,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
+import java.util.List;
+
 /**
  * @className: UpdateSysAdminQuery
  * @author: Java之父
@@ -18,7 +20,7 @@ public class UpdateSysAdminQuery {
     @NotNull(message = "请填写编号")
     private Long id;
     @Schema(description = "角色")
-    private String role;
+    private List<String> roles;
     @Schema(description = "备注")
     private String remark;
 }

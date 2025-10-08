@@ -33,7 +33,7 @@ public class ThreadPoolConfig {
         int queueCapacity = cpuCores * 100;   // 任务排队队列容量
         int keepAliveSeconds = 60;            // 非核心线程最大空闲时间（秒）
 
-        log.info("[Async配置] 平台线程模式: cpuCores={}, core={}, max={}, queue={}", cpuCores, corePoolSize, maxPoolSize, queueCapacity);
+        log.info("【Async配置】平台线程模式：cpuCores={}，core={}，max={}，queue={}", cpuCores, corePoolSize, maxPoolSize, queueCapacity);
 
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         executor.setCorePoolSize(corePoolSize);
@@ -60,7 +60,7 @@ public class ThreadPoolConfig {
         int queueCapacity = cpuCores * 200;             // 等待队列容量（防止积压消息）
         int keepAliveSeconds = 90;                      // 非核心线程最大空闲时间
 
-        log.info("[LongPoll线程池] 初始化: core={}, max={}, queue={}, keepAlive={}s",
+        log.info("【LongPoll线程池】初始化：core={}，max={}，queue={}，keepAlive={}s",
                 corePoolSize, maxPoolSize, queueCapacity, keepAliveSeconds);
 
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();

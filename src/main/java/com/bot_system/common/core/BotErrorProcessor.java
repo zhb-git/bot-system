@@ -85,7 +85,7 @@ public final class BotErrorProcessor {
         }
 
         // Inline 模式或未知情况
-        log.warn("无法识别的异常反馈场景: {}", e.getMessage());
+        log.warn("无法识别的异常反馈场景：{}", e.getMessage());
         return null;
     }
 
@@ -102,7 +102,7 @@ public final class BotErrorProcessor {
             return e.getMessage().trim() + " ❌";
         }
 
-        log.error("系统异常: {}", e.getMessage(), e);
+        log.error("系统异常：{}", e.getMessage(), e);
         return "系统开小差了，请稍后再试~ ❌";
     }
 }

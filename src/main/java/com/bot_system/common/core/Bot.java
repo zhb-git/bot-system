@@ -149,7 +149,7 @@ public class Bot {
 
                 log.info("已跳过旧消息，最新 offset = {}", lastUpdateId + 1);
             } else {
-                log.info("无需跳过旧消息");
+                log.info("暂无旧消息，无需跳过旧消息");
             }
         } catch (Exception e) {
             throw new BotException("跳过旧消息失败", e);

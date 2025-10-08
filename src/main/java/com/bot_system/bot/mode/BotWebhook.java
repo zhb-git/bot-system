@@ -26,7 +26,7 @@ public class BotWebhook {
         try {
             return botUpdateDispatch.dispatch(update);
         } catch (Exception e) {
-            log.error("机器人执行异常: {}", e.getMessage());
+            log.error("机器人执行异常：{}", e.getMessage());
             return BotErrorProcessor.process(update, e);
         }
     }

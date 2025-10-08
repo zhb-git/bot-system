@@ -13,6 +13,14 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+
+/**
+ * @className: WebMvcConfig
+ * @author: Java之父
+ * @date: 2025/10/4 21:47
+ * @version: 1.0.0
+ * @description: web配置
+ */
 @Slf4j
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
@@ -77,7 +85,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
             acceptCount = cpuCores * 20; // 排队请求数
             maxConnections = cpuCores * 100; // 并发连接数
             log.info(
-                    "[Tomcat配置] 平台线程模式: cpuCores={}, maxThreads={}, acceptCount={}, maxConnections={}",
+                    "【Tomcat配置】平台线程模式：cpuCores={}，maxThreads={}，acceptCount={}，maxConnections={}",
                     cpuCores, maxThreads, acceptCount, maxConnections
             );
 
