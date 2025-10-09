@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="ch">
 <head>
     <meta charset="UTF-8">
-    <title>index</title>
+    <title th:text="${title}">默认标题</title>
+    <style>
+        body { font-family: "Microsoft YaHei", sans-serif; padding: 40px; }
+        h1 { color: #0078d7; }
+        .card { border: 1px solid #ddd; border-radius: 8px; padding: 20px; width: 400px; }
+    </style>
 </head>
 <body>
-<h1>demo</h1>
+<div class="card">
+    <h1 th:text="${title}">默认标题</h1>
+    <p th:text="${message}">默认内容</p>
+</div>
 </body>
 </html>
