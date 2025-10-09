@@ -13,7 +13,7 @@ import java.time.format.DateTimeFormatter;
  * @author Java之父
  * @since 2025/10/4
  */
-public final class TimUtil {
+public final class TimeUtil {
     private static final ZoneId DEFAULT_ZONE = ZoneId.systemDefault();
 
     // 标准格式化模板
