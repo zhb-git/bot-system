@@ -113,6 +113,9 @@ Webhook 模式入口点。
 - 未标注的异常自动替换为通用提示。
 - 自动识别群组上下文，支持回复原消息。
 
+### ✅ RedisAction
+redis操作
+
 ---
 
 ## 🧩 五、Bot 通用封装说明
@@ -135,7 +138,7 @@ Webhook 模式入口点。
 
 ### 💡 使用示例
 
-```java
+````
 // 发送消息
 bot.sendText(chatId, "Hello Telegram!");
 
@@ -150,7 +153,7 @@ bot.deleteMessage(chatId, messageId);
 
 // 禁言用户
 bot.banUser(groupId, userId);
-```
+````
 
 ### 🧰 设计理念
 - **高内聚低耦合**：每个方法只封装一个 Telegram 行为。
